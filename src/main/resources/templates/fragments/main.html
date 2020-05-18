@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>mini project</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/main.css">
+
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+    <!--header.html  that's here  -->
+        <div th:replace="fragments/header :: header"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div th:replace="fragments/leftMenu :: leftMenu"></div>
+
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                    <div layout:fragment="content"></div>
+                </main>
+            </div>
+        </div>
+
+    </body>
+</html>
