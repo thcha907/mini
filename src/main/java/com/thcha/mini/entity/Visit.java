@@ -17,8 +17,8 @@ public class Visit {
     @Column(name = "visit_id")
     private Long id;
 
-    private Claim claim;
-    private Engineer engineer;
+    //private Claim claim;
+    //private Engineer engineer;
 
     @Column(name = "visit_date")
     private LocalDate visitDate;

@@ -10,7 +10,7 @@ import lombok.Setter;
 @Entity
 @DiscriminatorValue("C")
 @Getter @Setter
-public class CompanyCustomer {
+public class CompanyCustomer extends Customer {
     @Column(name = "biz_no")
     private String bizNo;
 
