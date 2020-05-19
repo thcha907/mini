@@ -12,6 +12,10 @@ spring:
     restart:
       enabled: false
 
+  messages:
+    basename: messages/**
+    encoding: UTF-8
+
   datasource:
     url: jdbc:h2:tcp://localhost/C:\h2\data\mini
     #url: jdbc:h2:tcp://localhost/C:\h2\data\mini;MVCC=TRUE

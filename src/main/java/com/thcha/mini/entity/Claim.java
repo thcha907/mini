@@ -11,12 +11,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.OneToOne;
+//import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity @Table(name = "claims")
+@Entity //@Table(name = "claim")
 @Getter @Setter
 public class Claim {
     @Id @GeneratedValue
@@ -39,4 +40,8 @@ public class Claim {
 
     @Column(name = "claim_process_fee")
     private int claimProcessFee;
+
+    @OneToOne(optional = true)
+    @JoinColumn(name = "visit_id")
+    private Visit visit;
 }
