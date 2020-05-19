@@ -1,7 +1,7 @@
 spring:
   thymeleaf:
     cache: false
-    prefix: file:src/main/resources/templates
+    #prefix: file:src/main/resources/templates
 
   freemarker:
     enabled: false
@@ -14,6 +14,7 @@ spring:
 
   datasource:
     url: jdbc:h2:tcp://localhost/C:\h2\data\mini
+    #url: jdbc:h2:tcp://localhost/C:\h2\data\mini;MVCC=TRUE
     username: sa
     password:
     driver-class-name: org.h2.Driver
@@ -29,4 +30,5 @@ spring:
 logging:
   level:
     org.hibernate.SQL: debug
+    org.hibernate.type: trace
 
