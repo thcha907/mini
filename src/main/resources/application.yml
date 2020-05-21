@@ -13,8 +13,13 @@ spring:
       enabled: false
 
   messages:
-    basename: messages/**
+    basename: classpath:/message/messages  #message 파일을 여러개 사용할 경우 콤마로 구분해서 여러개의 basename을 설정할 수 있다.
+    cache-duration: 3 #캐시 주기 설정, 기본 값 forever(-1)
+    #cache-seconds: 3
     encoding: UTF-8
+    fallback-to-system-locale: false #감지된 locale에 대한 파일이 없는 경우, 설정값 true : system locale 사용, 설정값 false : messages.properties 파일을 사용
+    use-code-as-default-message: true #메시지를 찾지 못했을 때, 예외 처리 대신 메시지 코드를 그대로 반환
+    #always-use-message-format=false #MessasgeFormat을 전체 메시지에 적용할 것인지   
 
   datasource:
     url: jdbc:h2:tcp://localhost/C:\h2\data\mini
@@ -32,7 +37,9 @@ spring:
         format_sql: true
 
 logging:
+  #file: logs/miniApplication.log
   level:
+    root: info
     org.hibernate.SQL: debug
     org.hibernate.type: trace
 
