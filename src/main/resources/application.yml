@@ -13,7 +13,7 @@ spring:
       enabled: false
 
   messages:
-    basename: message/messages  #message 파일을 여러개 사용할 경우 콤마로 구분해서 여러개의 basename을 설정할 수 있다. classpath:/message/messages  --> 적용 안 됨
+    basename: message/messages,message/label  #message 파일을 여러개 사용할 경우 콤마로 구분해서 여러개의 basename을 설정할 수 있다. classpath:/message/messages  --> 적용 안 됨
     cache-duration: 3 #캐시 주기 설정, 기본 값 forever(-1)
     #cache-seconds: 3
     encoding: UTF-8
