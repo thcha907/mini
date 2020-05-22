@@ -1,7 +1,7 @@
 spring:
   thymeleaf:
     cache: false
-    prefix: file:src/main/resources/templates
+    #prefix: file:src/main/resources/templates  #prefix를 적용하면 html을 찾지 못 함
 
   freemarker:
     enabled: false
@@ -13,7 +13,7 @@ spring:
       enabled: false
 
   messages:
-    basename: classpath:/message/messages  #message 파일을 여러개 사용할 경우 콤마로 구분해서 여러개의 basename을 설정할 수 있다.
+    basename: message/messages  #message 파일을 여러개 사용할 경우 콤마로 구분해서 여러개의 basename을 설정할 수 있다. classpath:/message/messages  --> 적용 안 됨
     cache-duration: 3 #캐시 주기 설정, 기본 값 forever(-1)
     #cache-seconds: 3
     encoding: UTF-8
@@ -22,8 +22,7 @@ spring:
     #always-use-message-format=false #MessasgeFormat을 전체 메시지에 적용할 것인지   
 
   datasource:
-    url: jdbc:h2:tcp://localhost/C:\h2\data\mini
-    #url: jdbc:h2:tcp://localhost/C:\h2\data\mini;MVCC=TRUE
+    url: jdbc:h2:tcp://localhost/C:\h2\data\mini  # ;MVCC=TRUE 옵션 적용시 오류 발생 함
     username: sa
     password:
     driver-class-name: org.h2.Driver
