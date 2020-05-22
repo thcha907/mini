@@ -1,4 +1,4 @@
-package com.thcha.mini;
+package com.thcha.mini.config;
 
 // import java.util.Locale;
 

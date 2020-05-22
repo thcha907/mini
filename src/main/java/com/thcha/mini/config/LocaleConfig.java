@@ -1,4 +1,4 @@
-package com.thcha.mini.controller;
+package com.thcha.mini.config;
 
 import java.util.Locale;
 
@@ -8,22 +8,26 @@ import org.springframework.web.servlet.LocaleResolver;
 //import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 //import org.springframework.web.servlet.i18n.CookieLocaleResolver;
-import org.springframework.web.servlet.i18n.FixedLocaleResolver;
+//import org.springframework.web.servlet.i18n.FixedLocaleResolver;
 //import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 @Configuration
 public class LocaleConfig implements WebMvcConfigurer {
     
     @Bean
     public LocaleResolver localeResolver() {
-        FixedLocaleResolver fixedLocaleResolver = new FixedLocaleResolver();
-
         String lang = System.getProperty("lang");
         System.out.printf("\n\t>>> --- LocaleConfig.localeResolver : lang=[%s] --- <<<\n\n", lang);
-        fixedLocaleResolver.setDefaultLocale(new Locale(lang)); 
 
+        SessionLocaleResolver sessionLocaleResolver = new SessionLocaleResolver();
+        sessionLocaleResolver.setDefaultLocale(new Locale(lang)); 
+        return sessionLocaleResolver;
+
+        //FixedLocaleResolver fixedLocaleResolver = new FixedLocaleResolver();
+        //fixedLocaleResolver.setDefaultLocale(new Locale(lang)); 
         //fixedLocaleResolver.setDefaultLocale(Locale.KOREA); 
-        return fixedLocaleResolver;
+        //return fixedLocaleResolver;
 
         // CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
         // cookieLocaleResolver.setDefaultLocale(Locale.KOREAN);
