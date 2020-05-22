@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@DiscriminatorValue("P")
+@DiscriminatorValue("PERSON")
 @Getter @Setter
 public class PersonCustomer extends Customer {
     private String ssn;
