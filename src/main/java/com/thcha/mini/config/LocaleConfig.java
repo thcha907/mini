@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
 //import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+//import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 //import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 //import org.springframework.web.servlet.i18n.FixedLocaleResolver;
 //import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
@@ -38,14 +39,13 @@ public class LocaleConfig implements WebMvcConfigurer {
     // @Bean
     // public LocaleChangeInterceptor localeChangeInterceptor() {
     //     LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
-
     //     System.out.printf("\n\t>>> --- LocaleConfig.localeChangeInterceptor : lang=[%s] --- <<<\n\n", System.getProperty("lang"));
-    //     lci.setParamName("locale");
+    //     lci.setParamName("lang");
     //     return lci;
     // }
 
     // @Override
     // public void addInterceptors(InterceptorRegistry registry) {
-    //     registry.addInterceptor(localeChangeInterceptor());
+    //      registry.addInterceptor(this.localeChangeInterceptor());
     // }   
 }
