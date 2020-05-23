@@ -21,7 +21,7 @@ import lombok.Setter;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "cType")
+@DiscriminatorColumn(name = "customerType")
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(includeNames = true)
@@ -39,7 +39,7 @@ public abstract class Customer {
     @Embedded
     private Address address;
 
-    @Column(name="line_count")
+    //@Column(name="line_count")
     private int lineCount;
 
     @OneToMany(mappedBy = "customer")

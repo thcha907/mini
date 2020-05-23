@@ -2,18 +2,42 @@
   <div class="sidebar-sticky">
     <ul class="nav flex-column">
       <li class="nav-item">
-        <a class="nav-link">
+        <a class="nav-link" th:href="@{customer/registCustomer}">
           <span data-feather="home"></span>
-          <span>고객등록</span>
+          <span th:text="#{label.menu_regist_customer}"></span>
           <span class="sr-only"></span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link">
+        <a class="nav-link" href=customer/retrieveCustomer.html th:href="@{customer/retrieveCustomer}">
           <span data-feather="file"></span>
-          <span>고객조회</span>
+          <span th:text="#{label.menu_retrieve_customer}"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link" th:href="@{/errorTest}"> -->
+        <a class="nav-link" th:href="@{registCustomer1}">
+          <span data-feather="file"></span>
+          <span th:text="#{label.menu_error_test}"></span>
         </a>
       </li>
     </ul>
   </div>
 </nav>
+<!-- th:href, th:src, th:action 등과 같이 URL이 지정되는 속성에 사용한다. 아래 예제와 같이 여러가지 형태의 URL을 지정할 수 있다. -->
+<!-- Page-relative URL. 일반적인 상대 경로 URL  -->
+<!-- <a href="login.html" th:href="@{user/login.html}">login</a> -->
+
+<!-- Context-relative URL. context name이 URL 앞에 자동으로 붙어서 생성된다. -->
+<!-- <a href="login.html" th:href="@{/login.html}">login</a> -->
+
+<!-- Server-relative URL. 서버의 다른 context에 접근할 수 있다. -->
+<!-- <a href="login.html" th:href="@{~/other/login.html}">login</a> -->
+
+<!-- Protocol-relative URL. -->
+<!-- <a href="login.html" th:href="@{//www.other.com/login.html}">login</a> 괄호를 사용해서 파라메터를 넘겨서 URL 파라메터를 지정하거나 URL path를 구성하는데 사용할 수 있다. -->
+<!-- '/gtvg/order/details?orderId=3'을 생성. URL 파라메터로 사용됨. -->
+<!-- <a href="details.html" th:href="@{/order/details(orderId=${o.id})}">view</a> -->
+
+<!-- '/gtvg/order/3/details'를 생성. orderId를 local변수로 사용하여 URL path를 생성. -->
+<!-- <a href="details.html" th:href="@{/order/{orderId}/details(orderId=${o.id})}">view</a> -->

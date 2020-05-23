@@ -1,6 +1,6 @@
 package com.thcha.mini.entity;
 
-import javax.persistence.Column;
+//import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
@@ -11,12 +11,12 @@ import lombok.Setter;
 @DiscriminatorValue("COMPANY")
 @Getter @Setter
 public class CompanyCustomer extends Customer {
-    @Column(name = "biz_no")
-    private String bizNo;
+    //@Column(name = "company_biz_no")
+    private String companyBizNo;
 
-    @Column(name = "rep_name")
-    private String repName;
+    //@Column(name = "company_rep_name")
+    private String companyRepName;
 
-    @Column(name = "compny_phone_no")
+    //@Column(name = "compny_phone_no")
     private String companyPhoneNo;
 }

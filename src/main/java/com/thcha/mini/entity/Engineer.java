@@ -21,15 +21,15 @@ public class Engineer {
     @Column(name = "engineer_name")
     private String name;
 
-    @Column(name = "photo_file_name")
+    //@Column(name = "photo_file_name")
     private String photoFileName;
 
-    @Column(name = "phone_no")
+    //@Column(name = "phone_no")
     private String phoneNo;
 
-    @Column(name = "area_cd")
+    //@Column(name = "area_cd")
     private String areaCd;
 
-    @Column(name = "use_yn")
+    //@Column(name = "use_yn")
     private String useYn;
 }

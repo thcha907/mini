@@ -2,7 +2,7 @@
 <html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
-    <title>mini project</title>
+    <title><span th:text="#{label.project_name}"></span></title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/main.css">
 
@@ -12,6 +12,10 @@
 
 <body>
     <!--header.html  that's here  -->
+    <header>
+        <div th:replace="fragments/header :: header"></div>
+    </header>
+
     <div th:replace="fragments/header :: header"></div>
     <div class="container-fluid">
         <div class="row">

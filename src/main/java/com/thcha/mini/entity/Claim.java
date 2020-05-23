@@ -34,14 +34,14 @@ public class Claim {
     @Column(name = "claim_dttm")
     private LocalDateTime claimDttm;
 
-    @Column(name = "claim_desc")
+    //@Column(name = "claim_desc")
     private String claimDesc;
 
     @Column(name = "claim_process_status")
     @Enumerated(EnumType.STRING)
     private ClaimProcessStatus status; //ENUM [ACCEPT(접수), COMPLETE(완료)]
 
-    @Column(name = "claim_process_fee")
+    //@Column(name = "claim_process_fee")
     private int claimProcessFee;
 
     @OneToOne(optional = true)

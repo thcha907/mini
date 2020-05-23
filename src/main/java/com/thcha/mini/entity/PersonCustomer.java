@@ -11,8 +11,9 @@ import lombok.Setter;
 @DiscriminatorValue("PERSON")
 @Getter @Setter
 public class PersonCustomer extends Customer {
-    private String ssn;
+    //@Column(name = "person_phone_no")
+    private String personSsn;
 
-    @Column(name = "phone_no")
-    private String phoneNo;
+    @Column(name = "person_phone_no")
+    private String personPhoneNo;
 }

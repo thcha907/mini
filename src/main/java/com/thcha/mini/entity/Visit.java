@@ -30,10 +30,10 @@ public class Visit {
     private Engineer engineer;
     //private List<Engineer> engineers = new ArrayList<Engineer>();
 
-    @Column(name = "visit_date")
+    //@Column(name = "visit_date")
     private LocalDate visitDate;
 
-    @Column(name = "visit_time_cd")
+    //@Column(name = "visit_time_cd")
     private String visitTimeCd;
 
     @Column(name = "claim_process_desc")

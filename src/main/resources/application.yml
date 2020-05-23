@@ -1,7 +1,8 @@
 spring:
   thymeleaf:
     cache: false
-    prefix: file:src/main/resources/templates/  #prefix를 적용하면 html을 찾지 못 함
+    prefix: file:src/main/resources/templates/  #prefix 정의시 마지막 '/'를 누락하지 말 것
+    #suffix: .html
 
   freemarker:
     enabled: false
