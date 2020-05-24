@@ -1,5 +1,6 @@
 package com.thcha.mini.config;
 
+
 import com.thcha.mini.interceptor.HttpInterceptor;
 
 import org.springframework.beans.factory.annotation.Autowired;
