@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 
 @Repository
 @RequiredArgsConstructor
-public abstract class CustomerRepository {
+public class CustomerRepository {
 
     @PersistenceContext
     private final EntityManager em;

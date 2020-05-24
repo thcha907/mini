@@ -1,8 +1,8 @@
 package com.thcha.mini.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.Bean;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.context.MessageSource;
+// import org.springframework.context.annotation.Bean;
 
 // import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.context.MessageSource;
@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 
 // import org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties.LocaleResolver;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+// import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 // import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 // import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
@@ -22,18 +22,18 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-    @Autowired
-    public MessageSource messageSource;
+    // @Autowired
+    // public MessageSource messageSource;
 
-    @Bean
-    public ReloadableResourceBundleMessageSource messageSource() {
-        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        //messageSource.setBasename("classpath:message/messages,classpath:message/label");
-        //messageSource.setCacheSeconds(3);
-        //messageSource.setDefaultEncoding("UTF-8");
+    // @Bean
+    // public ReloadableResourceBundleMessageSource messageSource() {
+    //     ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+    //     //messageSource.setBasename("classpath:message/messages,classpath:message/label");
+    //     //messageSource.setCacheSeconds(3);
+    //     //messageSource.setDefaultEncoding("UTF-8");
 
-        return messageSource;
-    }
+    //     return messageSource;
+    // }
 
     // /** Register intercepter **/
     // @Override
