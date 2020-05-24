@@ -14,6 +14,7 @@ import lombok.Setter;
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Engineer {
+
     @Id @GeneratedValue
     @Column(name = "engineer_id")
     private Long id;
@@ -21,15 +22,8 @@ public class Engineer {
     @Column(name = "engineer_name")
     private String name;
 
-    //@Column(name = "photo_file_name")
     private String photoFileName;
-
-    //@Column(name = "phone_no")
     private String phoneNo;
-
-    //@Column(name = "area_cd")
     private String areaCd;
-
-    //@Column(name = "use_yn")
     private String useYn;
 }

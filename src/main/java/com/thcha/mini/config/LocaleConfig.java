@@ -16,6 +16,9 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 @Configuration
 public class LocaleConfig implements WebMvcConfigurer {
     
+    // @Bean
+    // private MessageSource messageSource;
+
     @Bean
     public LocaleResolver localeResolver() {
         String lang = System.getProperty("lang");

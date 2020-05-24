@@ -12,14 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-//import javax.persistence.Table;
 
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity //@Table(name = "claim")
+@Entity
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Claim {
@@ -31,17 +30,13 @@ public class Claim {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @Column(name = "claim_dttm")
     private LocalDateTime claimDttm;
 
-    //@Column(name = "claim_desc")
     private String claimDesc;
 
-    @Column(name = "claim_process_status")
     @Enumerated(EnumType.STRING)
     private ClaimProcessStatus status; //ENUM [ACCEPT(접수), COMPLETE(완료)]
 
-    //@Column(name = "claim_process_fee")
     private int claimProcessFee;
 
     @OneToOne(optional = true)

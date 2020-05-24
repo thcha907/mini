@@ -26,8 +26,8 @@ import lombok.Setter;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(includeNames = true)
 public abstract class Customer {
-    @Id
-    @GeneratedValue
+    
+    @Id @GeneratedValue
     @Column(name="customer_id")
     private Long id;
 
@@ -39,8 +39,7 @@ public abstract class Customer {
     @Embedded
     private Address address;
 
-    //@Column(name="line_count")
-    private int lineCount;
+    private String lineCount;
 
     @OneToMany(mappedBy = "customer")
     private List<Claim> claims = new ArrayList<Claim>();

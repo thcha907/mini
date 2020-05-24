@@ -28,7 +28,7 @@ public class CustomerRepositoryTest {
         customer.setName("customer A");
 
         Long saveId = customerRepository.save(customer);
-        Customer findCustomer = customerRepository.find(saveId);
+        Customer findCustomer = customerRepository.findOne(saveId);
         
         Assertions.assertThat(findCustomer.getId()).isEqualTo(customer.getId());
         Assertions.assertThat(findCustomer.getName()).isEqualTo(customer.getName());
