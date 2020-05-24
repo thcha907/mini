@@ -27,23 +27,28 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class CustomerController {
 
     private final CustomerService customerService;
     //private final PersonCustomerService personCustomerService;
     //private final CompanyCustomerService companyCustomerService;
 
-    @GetMapping("customer/save")
+    @GetMapping("/customer/registCustomerFrom")
     public String createForm(Model model) {
+        log.info("CustomerController.createForm start ...");
+
         model.addAttribute("customerDto", new CustomerDto());
         return "customer/registCustomer";
     }
 
-    @PostMapping("customer/save")
+    @PostMapping("/customer/registCustomerFrom")
     /**
      * 
      * @param form
@@ -81,7 +86,7 @@ public class CustomerController {
         return "redirect:/customer/retrieveCustomer";
     }
 
-    @PostMapping("customer/{customerId}/update")
+    @PostMapping("/customer/{customerId}/update")
     /**
      * 
      * @param form
@@ -194,7 +199,7 @@ public class CustomerController {
     //     return "redirect:/register/success";
     // }
 
-    @GetMapping("/cusomter/retrieveCustomer")
+    @GetMapping("/cusomter/retrieveCustomerForm")
     /**
      * 초기 고객 조회 화면을 구성하기 위한 정보를 생성하여 반환한다. 
      * @param model
@@ -209,7 +214,7 @@ public class CustomerController {
         return "customer/retrieveCustomer";
     }
 
-    @PostMapping("/cusomter/retrieveCustomer")
+    @PostMapping("/cusomter/retrieveCustomerForm")
     /**
      * 조회 조건으로 고객명, 고객구분을 받아서, 리스트로 조회할 정보를 customersDto로 반환한 한다.
      * @param custoemrName

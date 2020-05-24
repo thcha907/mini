@@ -2,26 +2,29 @@
   <div class="sidebar-sticky">
     <ul class="nav flex-column">
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/customer/registCustomer}">
-          <!-- <span data-feather="home"></span> -->
+        <a class="nav-link" th:href="@{/customer/registCustomerForm}">
+        <!-- <a th:href="@{/customer/registCustomerForm}"> -->
+            <!-- <span data-feather="home"></span> -->
           <span th:text="#{label.menu_regist_customer}"></span>
           <!-- <span class="sr-only"></span> -->
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/customer/retrieveCustomer}">
+        <a class="nav-link" th:href="@{/customer/retrieveCustomerFrom}">
         <!-- <a class="nav-link" href=customer/retrieveCustomer.html th:href="@{customer/retrieveCustomer}"> -->
           <!-- <span data-feather="file"></span> -->
           <span th:text="#{label.menu_retrieve_customer}"></span>
         </a>
       </li>
+<!--
       <li class="nav-item">
-        <!-- <a class="nav-link" th:href="@{/errorTest}"> -->
+        !-- <a class="nav-link" th:href="@{/errorTest}"> --
         <a class="nav-link" th:href="@{/registCustomer1}">
-          <!-- <span data-feather="file"></span> -->
+          !-- <span data-feather="file"></span> --
           <span th:text="#{label.menu_error_test}"></span>
         </a>
       </li>
+-->
     </ul>
   </div>
 </nav>

@@ -2,6 +2,8 @@ package com.thcha.mini.config;
 
 import java.util.Locale;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
@@ -15,6 +17,8 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 @Configuration
 public class LocaleConfig implements WebMvcConfigurer {
+
+    private static final Logger logger = LoggerFactory.getLogger(LocaleConfig.class); 
     
     // @Bean
     // private MessageSource messageSource;
@@ -22,7 +26,9 @@ public class LocaleConfig implements WebMvcConfigurer {
     @Bean
     public LocaleResolver localeResolver() {
         String lang = System.getProperty("lang");
-        System.out.printf("\n\t>>> --- LocaleConfig.localeResolver : lang=[%s] --- <<<\n\n", lang);
+
+        //System.out.printf("\n\t>>> --- LocaleConfig.localeResolver : lang=[%s] --- <<<\n\n", lang);
+        logger.debug(String.format("\n\t>>> --- LocaleConfig.localeResolver : lang=[%s] --- <<<\n\n", lang));
 
         SessionLocaleResolver sessionLocaleResolver = new SessionLocaleResolver();
         sessionLocaleResolver.setDefaultLocale(new Locale(lang)); 

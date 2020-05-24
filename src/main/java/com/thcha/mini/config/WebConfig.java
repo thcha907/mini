@@ -1,5 +1,9 @@
 package com.thcha.mini.config;
 
+import com.thcha.mini.interceptor.HttpInterceptor;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 // import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.context.MessageSource;
 // import org.springframework.context.annotation.Bean;
@@ -12,6 +16,7 @@ package com.thcha.mini.config;
 
 // import org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties.LocaleResolver;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 // import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 // import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -21,6 +26,18 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
+
+    @Autowired
+    private HttpInterceptor httpInterceptor; 
+
+    @Override
+	public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(httpInterceptor) //new HttpInterceptor())
+                .addPathPatterns("/**")
+                .excludePathPatterns("/login","/admin/**");
+
+        WebMvcConfigurer.super.addInterceptors(registry);            
+	}
 
     // @Autowired
     // public MessageSource messageSource;
