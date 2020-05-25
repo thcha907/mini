@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class CustomerRepositoryTest {
 
     @Autowired //(required = true)
-    CustomerRepository customerRepository;
+    private CustomerRepository customerRepository;
 
     @Test
     @Transactional

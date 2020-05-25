@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.thcha.mini.entity.Customer;
 
+
 public interface CustomerRepositoryCustom {
     
-    List<Customer> findCustomerCustom(String name, String customerType);
+    public List<Customer> findCustomerCustom(String name, String customerType);
 }

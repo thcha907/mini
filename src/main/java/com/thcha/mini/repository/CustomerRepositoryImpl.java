@@ -3,15 +3,18 @@ package com.thcha.mini.repository;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import com.thcha.mini.entity.Customer;
 
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
-@RequiredArgsConstructor
+@Repository
 public class CustomerRepositoryImpl implements CustomerRepositoryCustom {
 
-    private final EntityManager em;
+    @PersistenceContext
+    private EntityManager em;
 
     @Override
     public List<Customer> findCustomerCustom(String name, String customerType) {
