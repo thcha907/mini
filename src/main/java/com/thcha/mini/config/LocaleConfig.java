@@ -26,6 +26,9 @@ public class LocaleConfig implements WebMvcConfigurer {
     @Bean
     public LocaleResolver localeResolver() {
         String lang = System.getProperty("lang");
+        if (lang == null || lang.isEmpty()) {
+            lang = "ko";
+        }
 
         //System.out.printf("\n\t>>> --- LocaleConfig.localeResolver : lang=[%s] --- <<<\n\n", lang);
         logger.debug(String.format("\n\t>>> --- LocaleConfig.localeResolver : lang=[%s] --- <<<\n\n", lang));

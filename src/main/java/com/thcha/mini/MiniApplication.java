@@ -4,13 +4,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+//import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import lombok.extern.slf4j.Slf4j;
 
 
 @SpringBootApplication
 @Slf4j
+//@EnableJpaRepositories(basePackages = "com.thcha.mini.repogitory", repositoryImplementationPostfix = "Impl")
 public class MiniApplication {
+
 	private static final Logger logger = LoggerFactory.getLogger(MiniApplication.class); 
 
 	public static void main(final String[] args) {

@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 // import org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties.LocaleResolver;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 // import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 // import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -26,6 +27,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @Configuration
+@EnableJpaRepositories(basePackages = "com.thcha.mini.repogitory", repositoryImplementationPostfix = "Impl")
 public class WebConfig implements WebMvcConfigurer {
 
     @Autowired

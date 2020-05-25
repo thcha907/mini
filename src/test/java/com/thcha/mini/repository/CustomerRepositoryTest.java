@@ -1,7 +1,8 @@
 package com.thcha.mini.repository;
 
+import java.util.List;
+
 import com.thcha.mini.entity.Customer;
-import com.thcha.mini.entity.PersonCustomer;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
@@ -14,27 +15,38 @@ import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Transactional
+@Rollback(false)
 public class CustomerRepositoryTest {
 
-    @Autowired
+    @Autowired //(required = true)
     CustomerRepository customerRepository;
 
     @Test
     @Transactional
     @Rollback(false)
     public void testCustomer() throws Exception {
-        //Customer customer = new Customer();
-        Customer customer = new PersonCustomer();
-        customer.setName("customer A");
+        Customer customerA = new Customer("customer A","PERSON", "1");
+        Customer customerB = new Customer("customer Company","COMPANY", "20");
+        customerRepository.save(customerA);
+        customerRepository.save(customerB);
 
-        Long saveId = customerRepository.save(customer);
-        Customer findCustomer = customerRepository.findOne(saveId);
+        Customer findCustomerA = customerRepository.findById(customerA.getId()).get();
+        Customer findCustomerB = customerRepository.findById(customerB.getId()).get();
+
+        Assertions.assertThat(findCustomerA).isEqualTo(customerA);
+        Assertions.assertThat(findCustomerB).isEqualTo(customerB);
+
+        List<Customer> all = customerRepository.findAll();
+        Assertions.assertThat(all.size()).isEqualTo(2);
+
+        long count = customerRepository.count();
+        Assertions.assertThat(count).isEqualTo(2);
+
+        customerRepository.delete(customerA);
+        customerRepository.delete(customerB);
         
-        Assertions.assertThat(findCustomer.getId()).isEqualTo(customer.getId());
-        Assertions.assertThat(findCustomer.getName()).isEqualTo(customer.getName());
-        Assertions.assertThat(findCustomer).isEqualTo(customer);
-
-        System.out.printf("\n>>> --- findCustomer == customer: %s --- <<<\n\n", Boolean.toString(findCustomer == customer));
+        long deleteCount = customerRepository.count();
+        Assertions.assertThat(deleteCount).isEqualTo(0);
     }
-
 }

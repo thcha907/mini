@@ -12,9 +12,9 @@
             <h1><span th:text="#{label.menu_regist_customer}"></span></h1>
         </div>
 
-        <form role="form" th:action="@{/customer/new}" th:object="${customerDto}" method="post">
+        <form role="form" th:action="@{/customer/registCustomer}" th:object="${customerDto}" method="post">
             <div class="form-group">
-                <label th:for="id"><span th:text="#{label.customer_id}">: </span></label>
+                <!-- <label th:for="id"><span th:text="#{label.customer_id}">: </span></label> -->
                 <input type="hidden" th:field="*{id}">
             </div>
             <div class="form-group">
@@ -26,10 +26,10 @@
             <div class="form-group">
                 <label th:for="customerType"><span th:text="#{label.customer_type}">: </span></label>
                 <div class="input-group" th:field="*{customerType}" id="selection">
-                    <input type="radio" name="customerType" value="PERSON" checked="checked"><span
-                        th:text="#{label.customer_type_person}"></span></input>
-                    <input type="radio" name="customerType" value="COMPANY"><span
-                        th:text="#{label.customer_type_conpany}"></span></input>
+                    <input type="radio" name="customerType" value="PERSON" checked="checked">
+                        <span th:text="#{label.customer_type_person}"></span></input>
+                    <input type="radio" name="customerType" value="COMPANY">
+                        <span th:text="#{label.customer_type_company}"></span></input>
                 </div>
             </div>
 
@@ -48,14 +48,14 @@
             </div>
 
             <div class="form-group">
-                <label th:for="zipcode"><span th:text="#{label.address_zipcode">: </span></label>
+                <label th:for="zipcode"><span th:text="#{label.address_zipcode}">: </span></label>
                 <input type="text" th:field="*{zipcode}" th.placeholder="#{label.address_zipcode_placeholder}"
                     th:class="${#fields.hasErrors('zipcode')} ? 'form-control fieldError' : 'form-control'">
                     <p th:if="${#fields.hasErrors('zipcode')}" th:errors="*{zipcode}">Incorrect data</p>
             </div>
 
             <div class="form-group">
-                <label th:for="lineCount"><span th:text="#{label.line_count">: </span></label>
+                <label th:for="lineCount"><span th:text="#{label.line_count}">: </span></label>
                 <input type="text" th:field="*{lineCount}" th.placeholder="#{label.line_count_placeholder"
                     th:class="${#fields.hasErrors('lineCount')} ? 'form-control fieldError' : 'form-control'">
                     <p th:if="${#fields.hasErrors('lineCount')}" th:errors="*{lineCount}">Incorrect data</p>
@@ -76,18 +76,18 @@
             
             <div id="companyArea" th:styleappend="*{customerType} == 'PERSON' ? 'display:none;'">
                 <div class="form-group">
-                    <label th:for="companyBizNo"><span th:text="#{label.companuy_biz_no}">: </span></label>
+                    <label th:for="companyBizNo"><span th:text="#{label.company_biz_no}">: </span></label>
                     <!-- <input type="text" class="form-control"  th:field="*{companyBizNo}"> -->
                     <input type="text" th:field="*{companyBizNo}" th.placeholder="#{label.company_biz_no_placeholder}"
                         th:class="${#fields.hasErrors('companyBizNo')} ? 'form-control fieldError' : 'form-control'">
                         <p th:if="${#fields.hasErrors('companyBizNo')}" th:errors="*{companyBizNo}">Incorrect data</p>
                 </div>
                 <div class="form-group">
-                    <label th:for="companyRepName"><span th:text="#{label.companuy_rep_name}">: </span></label>
+                    <label th:for="companyRepName"><span th:text="#{label.company_rep_name}">: </span></label>
                     <input type="text" class="form-control"  th:field="*{companyRepName}">
                 </div>
                 <div class="form-group">
-                    <label th:for="companyPhoneNo"><span th:text="#{label.companuy_phone_no}">: </span></label>
+                    <label th:for="companyPhoneNo"><span th:text="#{label.company_phone_no}">: </span></label>
                     <input type="text" class="form-control"  th:field="*{companyPhoneNo}">
                 </div>
             </div>
