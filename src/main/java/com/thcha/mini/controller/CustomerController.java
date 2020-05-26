@@ -3,7 +3,8 @@ package com.thcha.mini.controller;
 import com.thcha.mini.dto.CustomerDto;
 // import com.thcha.mini.dto.CustomersDto;
 import com.thcha.mini.entity.Customer;
-import com.thcha.mini.repository.CustomerRepository;
+//import com.thcha.mini.repository.CustomerRepository;
+import com.thcha.mini.service.CustomerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.data.domain.Page;
@@ -20,8 +21,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class CustomerController {
 
-    @Autowired(required = false)
-    private CustomerRepository customerRepository;
+    @Autowired
+    private CustomerService customerService;
     
     @GetMapping("/customer/newForm")
     /**
@@ -46,7 +47,7 @@ public class CustomerController {
      */
     public String updateForm(@PathVariable("customerId") Long customerId, Model model) {
 
-        Customer customer = customerRepository.findById(customerId).get();
+        Customer customer = customerService.findById(customerId);
         
         CustomerDto customerDto = 
             new CustomerDto(

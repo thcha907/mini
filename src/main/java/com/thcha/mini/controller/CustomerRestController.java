@@ -1,7 +1,7 @@
 package com.thcha.mini.controller;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.List;
 
 import com.thcha.mini.dto.Address;
@@ -37,7 +37,11 @@ public class CustomerRestController {
     public CustomerRestReturnDto findById(@PathVariable Long id) {
         Customer customer = customerRepository.findById(id).get();
         
-        CustomerRestReturnDto returnDto = makeRestReturnDto(new ArrayList<>(Arrays.asList(new Customer[]{customer})));
+        //CustomerRestReturnDto returnDto = makeRestReturnDto(new ArrayList<>(Arrays.asList(new Customer[]{customer})));
+        
+        List<Customer> customers = new ArrayList<Customer>();
+        customers.add(customer);
+        CustomerRestReturnDto returnDto = makeRestReturnDto(customers);
         
         return returnDto;
     }

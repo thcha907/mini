@@ -27,7 +27,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @Configuration
-@EnableJpaRepositories(basePackages = "com.thcha.mini.repogitory", repositoryImplementationPostfix = "Impl")
+@EnableJpaRepositories(basePackages = "com.thcha.mini.repository", repositoryImplementationPostfix = "Impl")
 public class WebConfig implements WebMvcConfigurer {
 
     @Autowired

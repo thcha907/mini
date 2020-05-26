@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 
 import com.thcha.mini.entity.Customer;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
