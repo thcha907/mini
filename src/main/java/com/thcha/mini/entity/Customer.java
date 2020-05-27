@@ -14,14 +14,14 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import groovy.transform.ToString;
-import lombok.AccessLevel;
+//import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter @Setter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor //(access = AccessLevel.PROTECTED)
 @ToString(includeNames = true)
 //@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 //@DiscriminatorColumn(name = "customerType")
@@ -52,16 +52,16 @@ public class Customer {
     private List<Claim> claims = new ArrayList<Claim>();
 
     public Customer(String name) {
-        this(name, "PERSON");
+        this(name, "0");
     }
 
-    public Customer(String name, String customerType) {
-        this(name, "PERSON", "0");
+    public Customer(String name, String lineCount) {
+        this(name, lineCount, "PERSON");
     }
 
-    public Customer(String name, String customerType, String lineCount) {
+    public Customer(String name, String lineCount, String customerType) {
         this.name = name;
-        this.customerType = customerType;
         this.lineCount = lineCount;
+        this.customerType = customerType;
     }
 }

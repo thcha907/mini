@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter @Setter
 @AllArgsConstructor
-public class Address {
+public class AddressDto {
     private String city;
     private String street;
     private String zipcode;

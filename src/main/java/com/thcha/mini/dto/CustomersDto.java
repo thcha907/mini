@@ -7,7 +7,7 @@ import lombok.Setter;
 public class CustomersDto {
     private Long id;
     private String name;
-    private String cusomterType;
+    private String customerType;
     private String address;
     private String lineCount;
 }

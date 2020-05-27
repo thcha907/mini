@@ -7,7 +7,6 @@ import javax.persistence.PersistenceContext;
 
 import com.thcha.mini.entity.Customer;
 
-//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -29,6 +28,24 @@ public class CustomerRepositoryImpl implements CustomerRepositoryCustom {
         }
 
         return em.createQuery(sql, Customer.class)
+            .getResultList();
+    }
+    
+    public List<Customer> findByName(String name) {
+        return em.createQuery("select c from Customer c where c.name = :name", Customer.class)
+            .setParameter("name", name)
+            .getResultList();
+    }
+
+    public List<Customer> findByPersonSsn(String personSsn) {
+        return em.createQuery("select c from Customer c where c.personSsn = :personSsn", Customer.class)
+            .setParameter("companyBizNo", personSsn)
+            .getResultList();
+    }    
+
+    public List<Customer> findByCompanyBizNo(String companyBizNo) {
+        return em.createQuery("select c from Customer c where c.companyBizNo = :companyBizNo", Customer.class)
+            .setParameter("companyBizNo", companyBizNo)
             .getResultList();
     }
 }

@@ -1,4 +1,11 @@
+#
+# 설정 파일을 하나로 관리하므로 설정 값을 아래와 같은 순서로 관리 할 것
+# - 설정 값 기술 순서 : 공통 -> Local -> dev -> prod 
+#
 spring:
+  profiles:
+    active: local # profile별 환경 설정 (파일 하나로)
+
   thymeleaf:
     cache: false
     prefix: file:src/main/resources/templates/  #prefix 정의시 마지막 '/'를 누락하지 말 것
@@ -42,13 +49,6 @@ spring:
         default-page-size: 10
         max-page-size: 2000
 
-logging:
-  #file: logs/miniApplication.log
-  level:
-    root: info
-    org.hibernate.SQL: debug
-    org.hibernate.type: trace
-
 server:
   error:
     include-exception: true
@@ -60,3 +60,35 @@ server:
 #server.error.include-stacktrace : 오류 응답에 stacktrace 내용을 포함할지 여부 (ALWAYS, NEVER, ON_TRACE_PARAM)
 #server.error.path : 오류 응답을 처리할 핸들러(ErrorController)의 path
 #server.error.whitelabel.enabled : 브라우저 요청에 대해 서버 오류시 기본으로 노출할 페이지를 사용할지 여부 (TRUE, FALSE)
+
+
+# profile별 환경 설정 (파일 하나로)
+--- # Local 환경 설정
+spring:
+  profiles: local
+    #include: console-logging
+logging:
+  #file: logs/miniApplication.log
+  level:
+    root: info
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
+
+--- # Dev 환경 설정
+spring:
+  profiles: dev
+    #include: console-logging
+logging:
+  #file: logs/miniApplication.log
+  level:
+    root: debug
+
+--- # Prod 환경 설정
+spring:
+  profiles: prod
+    #include: console-logging,file-error-logging
+logging:
+  #path: d:\temp
+  file: miniApplication.log
+  level:
+    root: error

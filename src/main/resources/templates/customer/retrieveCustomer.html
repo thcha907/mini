@@ -13,48 +13,49 @@
         </div>
 
         <div>
-            <form role="form" class="form-inline" th:action="@{/customer/retrieveCustomerForm}" th:object="${customerSearchDto}" method="post">
+            <form role="form" class="form-inline" th:action="@{/customer/retrieveSearchForm}"
+                th:object="${customerSearchDto}" method="post">
                 <div class="form-group">
                     <label th:for="name"><span th:text="#{label.customer_name}">: </span></label>
-                    <input type="text" th:field="*{name}" class="form-control" th.placeholder="#{label.customer_name_placeholder}">
+                    <input type="text" class="form-control" th:field="*{name}" th.placeholder="#{label.customer_name_placeholder}">
                 </div>
                 <div class="form-group mx-sm-1 mb-2">
                     <select th:field="*{customerType}" class="form-control">
-                        <option value="">All</option>
-                        <option value="PERSON"><span th:text="#{label.customer_type_person}"></span></option>
-                        <option value="COMPANY"><span th:text="#{label.customer_type_company}"></span></option>
-                        <!--
-                        <option th:each="cType : ${T(com.thcha.mini.entity.CustomerType).values()}"
-                                th:value="${cType}"
-                                th:text="${cType}">
+                        <option value="" th:text="#{label.customer_type}"></option>
+                        <option th:each="customerType : ${T(com.thcha.mini.entity.CustomerType).values()}"
+                                th:value="${customerType}"
+                                th:text="${customerType}"> option
                         </option>
-                        -->
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary"><span th:text="#{label.btn_search}"></span></button>
             </form>
+        </div>
+
         <div>
-            <table class="tb_col">
+            <p></p>
+        </div>
+
+        <div>
+            <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th><p th:text="#{label.customer_name}"></p></th>
-                        <th><p th:text="#{label.customer_type}"></p></th>
-                        <th><p th:text="#{label.address}"></p></th>
-                        <th><p th:text="#{label.line_count}"></p></th>
-                        <th><p th:text="#{label.btn_update}"></p></th>
+                        <th th:text="#{label.customer_name}"></th>
+                        <th th:text="#{label.customer_type}"></th>
+                        <th th:text="#{label.address}"></th>
+                        <th th:text="#{label.line_count}"></th>
+                        <th th:text="#{label.btn_update}"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="customer : ${customers}">
-                        <td th:text="${customer.name}"></td>
-                        <td th:text="${customer.customerType}"></td>
-                        <td th:text="${customer.address}"></td>
-                        <td th:text="${customer.lineCount}"></td>
+                    <tr th:each="customersDto : ${customersDto}">
+                        <td th:text="${customersDto.name}"></td>
+                        <td th:text="${customersDto.customerType}"></td>
+                        <td th:text="${customersDto.address}"></td>
+                        <td th:text="${customersDto.lineCount}"></td>
                         <td>
-                            <a href="/customer/${customer.id}/update"
-                                class="btn btn-primary" role="button">
-                                <span th:text="#{label.btn_update}"></span>
-                            </a>
+                            <a href="#" th:href="@{/customer/{id}/updateForm (id=${customersDto.id})}"
+                                class="btn btn-danger" th:text="#{label.btn_update}"></a>
                         </td>
                     </tr>
                 </tbody>

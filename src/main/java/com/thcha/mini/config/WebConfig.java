@@ -4,6 +4,8 @@ package com.thcha.mini.config;
 import com.thcha.mini.interceptor.HttpInterceptor;
 
 import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.context.MessageSource;
+// import org.springframework.context.annotation.Bean;
 
 // import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.context.MessageSource;
@@ -17,6 +19,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 // import org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties.LocaleResolver;
 import org.springframework.context.annotation.Configuration;
+// import org.springframework.context.support.MessageSourceAccessor;
+// import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 // import org.springframework.context.support.ReloadableResourceBundleMessageSource;
@@ -40,8 +44,27 @@ public class WebConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/login","/admin/**");
 
         WebMvcConfigurer.super.addInterceptors(registry);            
-	}
-
+    }
+    
+    // @Bean
+    // // 메세지 소스 세팅
+    // public MessageSource messageSource() {
+    //     ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+    //     // WEB-INF 밑에 해당 폴더에서 properties를 찾는다.
+    //     messageSource.setBasenames("classpath:/message/messages", "classpath:/message/label");
+    //     //messageSource.setBasename("classpath:/message/messages");
+    //     messageSource.setDefaultEncoding("UTF-8");
+    //     messageSource.setCacheSeconds(3); // reload messages every 10 seconds
+    //     return messageSource;
+    // }
+ 
+    // @Bean
+    // // 메세지 엑세서 MessageSource 사용해도 되는데, 메소드가 더 많음
+    // public MessageSourceAccessor getMessageSourceAccessor(MessageSource messageSource) {
+    //     return new MessageSourceAccessor(messageSource);
+    // }
+ 
+ 
     // @Autowired
     // public MessageSource messageSource;
 

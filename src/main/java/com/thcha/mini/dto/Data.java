@@ -7,7 +7,7 @@ import lombok.Setter;
 public class Data {
     private Long id;
     private String name;
-    private Address address;
+    private AddressDto address;
     private String lineCount;
     private String handphone;
 }
